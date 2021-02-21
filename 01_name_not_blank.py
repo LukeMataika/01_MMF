@@ -10,8 +10,7 @@ def not_blank(question):
         if response != "":
             return response
         else:
-            print("sorry - this can't be blank, "
-                "please enter your name")
+            print("sorry - write your name lol")
 
 
 # main Routine goes here

@@ -10,3 +10,9 @@ while name != "xxx" and count < MAX_TICKETS:
     # GET DETAILS...
     name = input ("name: ")
     count += 1
+    print ()
+
+if count == MAX_TICKETS:
+    print ("you have solid all available tickets!")
+else:
+

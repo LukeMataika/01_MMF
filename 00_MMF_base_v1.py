@@ -15,8 +15,7 @@ def not_blank(question):
             return response
         # if name is blank, show error (& repeat loop)
         else:
-            print("sorry - this can't be blank, "
-                "please enter your name")
+            print("sorry - write your name lol")
 
 
 # ********** Main Routine **********
