@@ -6,6 +6,8 @@ count = 0
 MAX_TICKETS = 5
 
 while name != "xxx" and count < MAX_TICKETS:
+    print ("you have {} seats "
+           "left".format(MAX_TICKETS - count))
 
     # GET DETAILS...
     name = input ("name: ")
@@ -14,5 +16,6 @@ while name != "xxx" and count < MAX_TICKETS:
 
 if count == MAX_TICKETS:
     print ("you have solid all available tickets!")
-else:
+
+
 
