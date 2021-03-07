@@ -75,10 +75,21 @@ while name != "xxx" and count < MAX_TICKETS:
 
     # GET DETAILS...
 
+    # get name (cant be blank)
+    name = not_blank("name: ")
+
+    if name == "xxx":
+        break
+        count += 1
+    print()
+
+    age = int_check("age: ", 12, 130)
+
+    # End of tickets loop
     if count == MAX_TICKETS:
-        print("you have solid all available tickets!")
+        print("you have sold all available tickets!")
     else:
-        print(" you have sold {} tickets.  \n"
+        print(" you have sold {} ticket/s.  \n"
               "there are {} places still available"
       .format(count, MAX_TICKETS - count))
 
