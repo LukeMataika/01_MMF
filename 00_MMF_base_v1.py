@@ -3,7 +3,7 @@
 
 # functions go here
 
-# checks the ticket name is not blank
+# checks the ticket nmame is not blank
 def not_blank(question):
     valid = False
 
@@ -18,26 +18,27 @@ def not_blank(question):
             print("sorry - write your name lol")
 
 
-def int_check(question, low_num, high_num):
+def int_check(question):
 
-    error = "please enter a whole number between {} " \
-            "and {}".format(low_num, high_num)
+    error = "please enter a whole number that is more than 0"
 
     valid = False
     while not valid:
 
         # ask user for number and check it is valid
         try:
-            response = int(input(question))
+            response = int (input(question))
 
-            if low_num <= response <= high_num:
-                return response
+            if response <=0:
+                print (error)
             else:
-                print(error)
+                return response
 
         # if an integer is not entered, display an error
         except ValueError:
             print(error)
+
+# main routine goes here
 
 # ********** Main Routine **********
 print("main routine has started")
@@ -61,7 +62,6 @@ while name != "xxx" and count < MAX_TICKETS:
     if name.lower() == "xxx":
         break
 
-    count += 1
     print()
 
     # tells users how many seats are left
@@ -75,15 +75,17 @@ while name != "xxx" and count < MAX_TICKETS:
 
     # GET DETAILS...
 
-    # get name (cant be blank)
-    name = not_blank("name: ")
+    age = int_check("age: ")
+    
+    # check that age is valid...
+    if age < 12:
+        print ("sorry you are too young for this movie")
+        continue
+    elif age > 130:
+        print("I don't think your that old it - It looks like a mistake")
+        continue
 
-    if name == "xxx":
-        break
-        count += 1
-    print()
-
-    age = int_check("age: ", 12, 130)
+    count += 1
 
     # End of tickets loop
     if count == MAX_TICKETS:
@@ -95,7 +97,7 @@ while name != "xxx" and count < MAX_TICKETS:
 
     # get age (between 12 and 130)
 
-    # calculate ticket price
+   # calculate ticket price
 
     # loop to ask for snacks
 
