@@ -48,10 +48,14 @@ print("main routine has started")
 # ask user if they have used the program before & show instructions if necessary
 
 # initiate loop so that it runs at least once
-name = ""
-count = 0
 MAX_TICKETS = 5
 
+profit = 0
+count = 0
+ticket_sales = 0
+
+
+name = ""
 # Get name and age
 while name != "xxx" and count < MAX_TICKETS:
 
@@ -65,7 +69,7 @@ while name != "xxx" and count < MAX_TICKETS:
     print()
 
     # tells users how many seats are left
-    if count < 4:
+    if count < MAX_TICKETS - 1:
         print("you have {} seats "
               "left".format(MAX_TICKETS - count))
 
@@ -84,8 +88,31 @@ while name != "xxx" and count < MAX_TICKETS:
     elif age > 130:
         print("I don't think your that old it - It looks like a mistake")
         continue
+    
+    # get the price for the user's age
+    elif age < 16:
+        ticket_price = 7.5
+    elif age <65:
+        ticket_price = 10.5
+    else:
+        ticket_price = 6.5
 
+
+    profit_made = ticket_price - 5
+    profit += profit_made
+
+    print("{} : ${:.2f}".format(name, ticket_price))
+
+
+
+    # add sold ticket to count
     count += 1
+
+    # loop to ask for snacks
+
+    # calculate snack price
+
+    # ask for payment method (and apply surcharge if necesary)
 
     # End of tickets loop
     if count == MAX_TICKETS:
@@ -95,16 +122,9 @@ while name != "xxx" and count < MAX_TICKETS:
               "there are {} places still available"
       .format(count, MAX_TICKETS - count))
 
-    # get age (between 12 and 130)
 
-   # calculate ticket price
 
-    # loop to ask for snacks
-
-    # calculate snack price
-
-    # ask for payment method (and apply surcharge if necesary)
-
-    # calculate total sales and profit
-
-    # out put data to text file
+# calculate total sales and profit
+print("profit from tickets:  ${:.2f}".format(profit))
+    
+# out put data to text file
