@@ -67,6 +67,15 @@ while name != "xxx" and count < MAX_TICKETS:
         break
 
     print()
+age = int_check("age: ")
+    
+    # check that age is valid...
+if age < 12:
+        print ("sorry you are too young for this movie")
+        continue
+elif age > 130:
+        print("I don't think your that old it - It looks like a mistake")
+        continue
 
     # tells users how many seats are left
     if count < MAX_TICKETS - 1:
@@ -79,15 +88,6 @@ while name != "xxx" and count < MAX_TICKETS:
 
     # GET DETAILS...
 
-    age = int_check("age: ")
-    
-    # check that age is valid...
-    if age < 12:
-        print ("sorry you are too young for this movie")
-        continue
-    elif age > 130:
-        print("I don't think your that old it - It looks like a mistake")
-        continue
     
     # get the price for the user's age
     elif age < 16:
