@@ -59,72 +59,65 @@ name = ""
 # Get name and age
 while name != "xxx" and count < MAX_TICKETS:
 
-    # get name (cant be blank
-    name = not_blank("name: ")
+  # get name (cant be blank
+  name = not_blank("name: ")
 
-    # exit loop if name is 'xxx'
-    if name.lower() == "xxx":
-        break
+  # exit loop if name is 'xxx'
+  if name.lower() == "xxx":
+    break
 
-    print()
-age = int_check("age: ")
-    
-    # check that age is valid...
-if age < 12:
-        print ("sorry you are too young for this movie")
-        continue
-elif age > 130:
-        print("I don't think your that old it - It looks like a mistake")
-        continue
+  print()
+  age = int_check("age: ")
 
-    # tells users how many seats are left
-    if count < MAX_TICKETS - 1:
-        print("you have {} seats "
-              "left".format(MAX_TICKETS - count))
+  # check that age is valid...
+  if age < 12:
+    print ("sorry you are too young for this movie")
+    continue
+  elif age > 130:
+    print("I don't think your that old it - It looks like a mistake")
+    continue
+  # get the price for the user's age
+  elif age < 16:
+    ticket_price = 7.5
+  elif age <65:
+    ticket_price = 10.5
+  else:
+    ticket_price = 6.5
 
-    # warns user that only one seat is left
-    else:
-        print("*** There is ONE seat left!! ***")
+  # tells users how many seats are left
+  if count < MAX_TICKETS - 1 :
+    print("you have {} seats left".format(MAX_TICKETS - count))
 
-    # GET DETAILS...
+  # warns user that only one seat is left
+  else:
+    print("*** There is ONE seat left!! ***")
 
-    
-    # get the price for the user's age
-    elif age < 16:
-        ticket_price = 7.5
-    elif age <65:
-        ticket_price = 10.5
-    else:
-        ticket_price = 6.5
+  # GET DETAILS...
+  profit_made = ticket_price - 5
+  profit += profit_made
 
-
-    profit_made = ticket_price - 5
-    profit += profit_made
-
-    print("{} : ${:.2f}".format(name, ticket_price))
+  print("{} : ${:.2f}".format(name, ticket_price))
 
 
 
-    # add sold ticket to count
-    count += 1
+  # add sold ticket to count
+  count += 1
 
-    # loop to ask for snacks
+  # loop to ask for snacks
 
-    # calculate snack price
+  # calculate snack price
 
-    # ask for payment method (and apply surcharge if necesary)
+  # ask for payment method (and apply surcharge if necesary)
 
-    # End of tickets loop
-    if count == MAX_TICKETS:
-        print("you have sold all available tickets!")
-    else:
-        print(" you have sold {} ticket/s.  \n"
-              "there are {} places still available"
-      .format(count, MAX_TICKETS - count))
-
-
+  # End of tickets loop
+  if count == MAX_TICKETS:
+    print("you have sold all available tickets!")
+  else:
+    print(" you have sold {} ticket/s.  \n"
+          "there are {} places still available"
+    .format(count, MAX_TICKETS - count))
 
 # calculate total sales and profit
 print("profit from tickets:  ${:.2f}".format(profit))
-    
+
 # out put data to text file
