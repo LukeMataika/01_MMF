@@ -4,10 +4,11 @@
 # question and lists of valid responses
 def string_checker (question, to_check) :
 
-  valid = False 
+  valid = False
   while not valid:
 
     response = input(question).lower
+    
     if response in to_check:
       return response
 
@@ -19,3 +20,13 @@ def string_checker (question, to_check) :
           # note: returns the entire response
           # rather than just the first letter 
           return item
+
+    print ("sorry that is not a valid rersponse")
+
+
+#  *** Main Routine starts here ***
+for item in range (0, 6):
+  want_snacks = string_checker ("do you want "
+  "snacks?", ["yes", "no"])
+  print ("answer OK, you said:",want_snacks)
+  print()
