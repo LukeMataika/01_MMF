@@ -31,7 +31,7 @@ valid_snacks = [
  ["popcorn", "p", "corn", "a"],
 ["M&M's", "m&m's", "mms", "m", "b"], # first item is M&M
  ["pita chips", "chips", "pc", "pita", "c"],
- ["water", "w", "d"]
+ ["water", "fiji water", "fiji", "w", "d"],
  ["xxx"]
 ]
  
@@ -78,3 +78,6 @@ else:
 
     for item in snack_order:
       print (item)
+
+print()
+print("you are done")
