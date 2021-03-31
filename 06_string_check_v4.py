@@ -32,6 +32,7 @@ valid_snacks = [
 ["M&M's", "m&m's", "mms", "m", "b"], # first item is M&M
  ["pita chips", "chips", "pc", "pita", "c"],
  ["water", "w", "d"]
+ ["xxx"]
 ]
  
 yes_no = [
@@ -47,15 +48,33 @@ while check_snack == "invalid choice":
  check_snack = string_check(want_snack, yes_no)
  
 # loop three times to make testing quicker
-for item in range(0, 6):
- 
- # ask user for desired snack and put it in lowercase
- desired_snack = input("Snack: ").lower()
- 
- # check if snack is valid
- snack_choice = string_check(desired_snack, valid_snacks)
- print("Snack Choice: ", snack_choice)
 
- if check_snack == "yes":
 
-   desired_snack = ""
+desired_snack = ""
+while desired_snack != "xxx" :
+  # ask user for desired snack and put it in in lowercase
+  desired_snack = input("snack: ").lower()
+
+  if desired_snack == "xxx":
+    break
+
+  # check if snack is valid
+  snack_choice = string_check(desired_snack, valid_snacks)   
+  print("snack choice: ", snack_choice)
+
+  # add snack to list...
+
+  # check that snack is not the exit code before adding
+  if snack_choice != "xxx" and snack_choice != "in valid choice":
+    snack_order.append(snack_choice)
+
+# show snack orders
+print()
+if len(snack_order) == 0:
+  print("snacks ordered: None")
+
+else:
+    print("snacks ordered:")
+
+    for item in snack_order:
+      print (item)
