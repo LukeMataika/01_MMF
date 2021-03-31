@@ -31,4 +31,4 @@ desired_snack = desired_snack.strip()
 # print order
 print("amount:", amount)
 print("snack: ", desired_snack)
-print("lenght of snack:", len(desired_snack))
+print("length of snack:", len(desired_snack))
