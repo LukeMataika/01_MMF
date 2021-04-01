@@ -15,13 +15,13 @@ for item in test_strings:
   number_regex = "^[1-9]"
 
   # if an item has a number, seperate it into two (number / item)
-if re.match(number_regex, item) :
-  amount = int (item[0])
-  desired_snack = item[1:]
+  if re.match(number_regex, item) :
+    amount = int (item[0])
+    desired_snack = item[1:]
 
-else:
-  amount = 1
-  desired_snack = item
+  else:
+    amount = 1
+    desired_snack = item
 
 #remove white space around snack
 desired_snack = desired_snack.strip()
