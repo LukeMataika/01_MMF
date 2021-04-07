@@ -8,20 +8,20 @@ test_strings = [
   "1.5oj",
   "4oj",
 ]
- 
+
 for item in test_strings:
 
   # regular expression to find if the item starts with a number
   number_regex = "^[1-9]"
 
   # if an item has a number, seperate it into two (number / item)
-  if re.match(number_regex, item) :
-    amount = int (item[0])
-    desired_snack = item[1:]
+  if re.match(number_regex, item):
+      amount = int(item[0])
+      desired_snack = item[1:]
 
   else:
-    amount = 1
-    desired_snack = item
+      amount = 1
+      desired_snack = item
 
 #remove white space around snack
 desired_snack = desired_snack.strip()
