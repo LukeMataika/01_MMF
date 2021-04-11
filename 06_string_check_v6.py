@@ -1,8 +1,35 @@
-import...
+import re
 
 
 # function goes here
 def string_check(choice, options) : ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #regular expression to find if the item starts with a number
@@ -36,3 +63,19 @@ while check_snack == "invalid choice":
  check_snack = string_check(want_snack, yes_no)
 
 # if they say yes, ask what snacks they want (and add to our snacks)
+if check_snack == "yes":
+
+  desired_snack = ""
+  while desired_snack != "xxx"
+
+    snack_row = []
+
+    # ask user for desired snack and put it in lowercase
+    desired_snack = input("snack: ").lower()
+
+    if desired_snack == "xxx":
+      break
+
+    # if itemhas a number, seperate it into two (number / )
+    if re.match(number_regex, desired_snack):
+      amount = int(desired_snack)
