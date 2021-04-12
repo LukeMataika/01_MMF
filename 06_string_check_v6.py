@@ -2,37 +2,31 @@ import re
 
 
 # function goes here
-def string_check(choice, options) : ...
+def string_check(choice, options):
 
+  for var_list in options:
+      
+    # if the snack is one of the lists, return the filter
+      if choice in var_list:
 
+        # get full name of snack and put it
+        # in title case so it looks nice when outputted
+        chosen = var_list[0].title()
+        print(chosen)
+        is_valid = "yes"
+        break
 
+      # if the chosen option is not valid, set is valid to no
+      else:
+        is_valid = "no"
+      
+      # if the snack is not OK - ask question again.
+      if is_valid == "yes":
+        return chosen
+      else:
+        return "invalid choice"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#regular expression to find if the item starts with a number
+# regular expression to find if the item starts with a number
 number_regex = "^[1-9]"
 
 # valid snacks holds list of all snacks
@@ -66,7 +60,7 @@ while check_snack == "invalid choice":
 if check_snack == "yes":
 
   desired_snack = ""
-  while desired_snack != "xxx"
+  while desired_snack != "xxx":
 
     snack_row = []
 
@@ -78,4 +72,42 @@ if check_snack == "yes":
 
     # if itemhas a number, seperate it into two (number / )
     if re.match(number_regex, desired_snack):
-      amount = int(desired_snack)
+      amount = int(desired_snack[0])
+      desired_snack = desired_snack [1:]
+
+    else:
+      amount = 1
+      desired_snack = desired_snack
+
+    # remove white space around snack
+    desired_snack = desired_snack.strip()
+
+
+    # check if snack is valid
+    snack_choice = string_check(desired_snack, valid_snacks)
+
+    # check snack amount is valid (less than 5)
+    if amount >= 5:
+      print("sorry - we have a four snack amximum")
+      snack_choice = "invalid choice"
+
+          # add snack AND amount to list...
+    amount_snack = "{} {}". format(amount, snack_choice)
+
+    # check that the snack is not an exit code before adding
+    if snack_choice != "xxx" and snack_choice != "invalid choice":
+      snack_order.append(snack_row)
+
+# show snack oreders
+print()
+if len(snack_order) == 0:
+  print("snacks oredered: none")
+
+else:
+  print("snacks oredered:")
+
+  ''' for item in snack_oreder:
+      print(item)
+      '''
+
+print (snack_order)
