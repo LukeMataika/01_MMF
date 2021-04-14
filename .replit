@@ -1,0 +1,2 @@
+language = "python3"
+run = "python 06_string_check_v5.py"
