@@ -23,12 +23,12 @@ for item in test_strings:
       amount = 1
       desired_snack = item
 
-#remove white space around snack
-desired_snack = desired_snack.strip()
+  #remove white space around snack
+  desired_snack = desired_snack.strip()
 
-# if item does not have a number in front, set number to 1
+  # if item does not have a number in front, set number to 1
 
-# print order
-print("amount:", amount)
-print("snack: ", desired_snack)
-print("length of snack:", len(desired_snack))
+  # print order
+  print("amount:", amount)
+  print("snack: ", desired_snack)
+  print("length of snack:", len(desired_snack))

@@ -18,6 +18,7 @@ def not_blank(question):
             print("sorry - write your name lol")
 
 
+# checks for an integer more than 0
 def int_check(question):
 
     error = "please enter a whole number that is more than 0"
@@ -43,7 +44,7 @@ def int_check(question):
 # ********** Main Routine **********
 print("main routine has started")
 
-# Set up dictionaries / lists needed to holld data
+# Set up dictionaries / lists needed to hold data
 
 # ask user if they have used the program before & show instructions if necessary
 

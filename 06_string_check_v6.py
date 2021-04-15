@@ -5,26 +5,26 @@ import re
 def string_check(choice, options):
 
   for var_list in options:
-      
+
     # if the snack is one of the lists, return the filter
-      if choice in var_list:
+    if choice in var_list:
 
-        # get full name of snack and put it
-        # in title case so it looks nice when outputted
-        chosen = var_list[0].title()
-        print(chosen)
-        is_valid = "yes"
-        break
+      # get full name of snack and put it
+      # in title case so it looks nice when outputted
+      chosen = var_list[0].title()
+      print(chosen)
+      is_valid = "yes"
+      break
 
-      # if the chosen option is not valid, set is valid to no
-      else:
-        is_valid = "no"
-      
-      # if the snack is not OK - ask question again.
-      if is_valid == "yes":
-        return chosen
-      else:
-        return "invalid choice"
+    # if the chosen option is not valid, set is valid to no
+    else:
+      is_valid = "no"
+
+  # if the snack is not OK - ask question again.
+  if is_valid == "yes":
+    return chosen
+  else:
+    return "invalid choice"
 
 # regular expression to find if the item starts with a number
 number_regex = "^[1-9]"
@@ -57,7 +57,7 @@ while check_snack == "invalid choice":
  check_snack = string_check(want_snack, yes_no)
 
 # if they say yes, ask what snacks they want (and add to our snacks)
-if check_snack == "yes":
+if check_snack == "Yes":
 
   desired_snack = ""
   while desired_snack != "xxx":
@@ -93,6 +93,7 @@ if check_snack == "yes":
 
           # add snack AND amount to list...
     amount_snack = "{} {}". format(amount, snack_choice)
+    snack_row.append(amount_snack)
 
     # check that the snack is not an exit code before adding
     if snack_choice != "xxx" and snack_choice != "invalid choice":
