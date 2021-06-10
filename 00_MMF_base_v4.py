@@ -189,9 +189,15 @@ valid_snacks = [
 
 # valid options for free / no questions
 yes_no = [
-  ["yes", "y"], ["no", "n"]
+    ["yes", "y"],
+    ["no", "n"]
   ]
 
+# lists of valid responses for payment method
+pay_method = [
+    ["cash", "ca"],
+    ["credit", "cr"]
+]
 
 # ask user if they have used the program before & show instructions if necessary
 

@@ -78,5 +78,8 @@ movie_frame ["sub total"] = \
     movie_frame ['m&ms'] *price_dict ['m&ms'] + \
     movie_frame ['orange juice'] *price_dict ['orange juice']
 
+# shorten column names
+movie_frame = movie_frame.rename(columns={'orange juice': 'oj',
+'pita chips': 'chips'})
 
 print(movie_frame)
