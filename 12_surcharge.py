@@ -56,7 +56,6 @@ while name != "xxx":
         surcharge = 0.05 * subtotal
     else:
         surcharge = 0
-
     total = subtotal + surcharge
 
     print ("name: {} | subtotal: ${:.2f} | surcharge: ${:.2f} | "
