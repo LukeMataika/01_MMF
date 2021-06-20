@@ -117,18 +117,7 @@ def get_snacks():
         check_snack = string_check(want_snack, yes_no)
         
         print("check snack", check_snack)
-
-        # if they say yes ask what snacks they want
-        if check_snack == "yes":
-            snack_order = get_snacks()
-
-        else:
-            snack_order =[]
-
-        # assume no snacks have been bought...
-        for item in snack_lists:
-            item.append(0)
-        
+           
         # if they say yes, ask what snacks they want (and add to our snack list)
         if check_snack == "No":
             return []
@@ -355,3 +344,4 @@ print("surcharge", surcharge_mult_list)
 movie_frame = pandas.DataFrame (movie_data_dict)
 movie_frame = movie_frame.set_index ('Name')
 print (movie_frame)
+    
