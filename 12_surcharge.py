@@ -62,3 +62,5 @@ while name != "xxx":
            "total payable: ${:.2f}".format(name, subtotal, surcharge, total))
     
     # calculate surcharge
+
+    

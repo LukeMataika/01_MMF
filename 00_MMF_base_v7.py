@@ -125,7 +125,7 @@ def get_snacks():
         else:
         
             desired_snack = ""
-            while desired_snack != "xxx" :
+            while desired_snack != "xxx" or desired_snack != "n":
 
                 snack_row = []
 
@@ -238,6 +238,7 @@ movie_data_dict = {
     'Surcharge_Multiplier': surcharge_mult_list
 }
 
+
 # summary dictionary
 summary_data_dict = {
     'item' : summary_headings,
@@ -261,7 +262,7 @@ ticket_sales = 0
 
 name = ""
 # Get name and age
-while name != "xxx" and count < MAX_TICKETS:
+while name != "xxx" and count < MAX_TICKETS:                                                                                                                                                                                                                                                                                                    
 
     # get name (cant be blank
     name = not_blank("name: ")
@@ -353,32 +354,36 @@ print("surcharge", surcharge_mult_list)
 
 # create dataframe and set index to name column
 movie_frame = pandas.DataFrame (movie_data_dict)
-movie_frame = movie_frame.set_index ('name')
+movie_frame = movie_frame.set_index ('Name')
 
 #create column called 'sub total'
 #fill it price for snacks and ticket
 
-movie_frame ["sub total"] = \
-    movie_frame ['ticket'] + \
-    movie_frame ['popcorn'] *price_dict ['popcorn'] + \
-    movie_frame ['water'] *price_dict ['water'] + \
-    movie_frame ['pita chips'] *price_dict ['pita chips'] + \
-    movie_frame ['m&ms'] *price_dict ['m&ms'] + \
-    movie_frame ['orange juice'] *price_dict ['orange juice']
+movie_frame ["Snacks"] = \
+    movie_frame ['Popcorn'] *price_dict ['Popcorn'] + \
+    movie_frame ['Water'] *price_dict ['Water'] + \
+    movie_frame ['Pita Chips'] *price_dict ['Pita Chips'] + \
+    movie_frame ['M&Ms'] *price_dict ['M&Ms'] + \
+    movie_frame ['Orange Juice'] *price_dict ['Orange Juice']
 
-movie_frame["sub total"] = \
-    movie_frame['ticket'] + \
-    movie_frame['snacks']
+print("with snacks...")
+print(movie_frame)
+print()
 
-movie_frame["surcharge"] = \
-    movie_frame["subtotal"] * movie_frame["surcharge_multiplier"]
+movie_frame["Sub Total"] = \
+    movie_frame['Ticket'] + \
+    movie_frame['Snacks']
 
-movie_frame["total"] = movie_frame["sub total"] + \
-    movie_frame['surcharge']
+
+
+movie_frame["Surcharge"] = \
+    movie_frame["Sub Total"] * movie_frame["Surcharge_Multiplier"]
+
+movie_frame["Total"] = movie_frame["Sub Total"] + \
+    movie_frame["Surcharge"]
 
 # shorten column names
-movie_frame = movie_frame.rename(columns={'orange juice': 'oj',
-'pita chips': 'chips'})
+movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ', 'Pita Chips': 'Chips'})
 
 # set up summary dataframe
 # populate snack items...
@@ -388,7 +393,7 @@ for item in snack_lists:
 
 # get snack profit
 # get snack total from panda
-snack_total = movie_frame['snacks'].sum()
+snack_total = movie_frame['Snacks'].sum()
 snack_profit = snack_total * 0.2
 summary_data.append(snack_profit)
 
@@ -400,6 +405,9 @@ summary_data.append(ticket_profit)
 total_profit = snack_profit + ticket_profit
 summary_data.append(total_profit)
 
+# reate summery frame
+summary_frame = pandas.DataFrame (summary_data_dict)
+summary_frame = summary_frame.set_index('item')
 
 # print details...
 movie_frame = pandas.DataFrame (movie_data_dict)
@@ -412,12 +420,25 @@ pandas.set_option('display.max_columns', None)
 #display numbers 2 dp...
 pandas.set_option('precision', 2)
 
+print()
+print("*** ticket / snack information ***")
+print("note: for full details, please see the excel file called")
+print()
+# print(movie_frame [['Ticket', 'Snacks', 'Sub Total', 'Surcharge', 'Total']])
+print(movie_frame[['Ticket', 'Snacks']])
+
+print()
+
+print("*** snack / profit summary ****")
+print()
+print(summary_frame)
+
 print_all = input ("print all columns?? (y) for yes ")
 if print_all == "y":
     print(movie_frame)
 else:
-    print(movie_frame[['ticket','sub total',
-                       'surcharge', 'total']])
+    print(movie_frame[['Ticket','Sub Total',
+                       'Surcharge', 'Total']])
 
 print()
 
@@ -425,8 +446,9 @@ print()
 ticket_profit = ticket_sales - (5 * ticket_count)
 print ("ticket profit: ${:.2f}".format(ticket_profit))
 
-# tell user if they have unsold tickets...
-if ticket_count == MAX_TICKETS :
-    print("you have sold all the available tickets")
+# # tell user if they have unsold tickets...
+# if ticket_count == MAX_TICKETS :
+#     print("you have sold all the available tickets")
 
-    print("you have sold {} tickets")
+#     print("you have sold {} tickets")
+
