@@ -342,15 +342,6 @@ print("profit from tickets:  ${:.2f}".format(profit))
 
 # out put data to text file
 
-# print lists to see what is going on...
-print("All names", all_names)
-print(all_ticket)
-print(popcorn)
-print(water)
-print(pita_chips)
-print(mms)
-print(orange_juice)
-print("surcharge", surcharge_mult_list)
 
 # create dataframe and set index to name column
 movie_frame = pandas.DataFrame (movie_data_dict)
@@ -382,8 +373,18 @@ movie_frame["Surcharge"] = \
 movie_frame["Total"] = movie_frame["Sub Total"] + \
     movie_frame["Surcharge"]
 
+print()    
+print("with totals etc")
+print(movie_frame)
+
+
 # shorten column names
 movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ', 'Pita Chips': 'Chips'})
+
+print()
+print("now the short version...")
+
+print(movie_frame [['Ticket', 'Snacks', 'Sub Total', 'Surcharge', 'Total']])
 
 # set up summary dataframe
 # populate snack items...
@@ -405,7 +406,7 @@ summary_data.append(ticket_profit)
 total_profit = snack_profit + ticket_profit
 summary_data.append(total_profit)
 
-# reate summery frame
+# create summery frame
 summary_frame = pandas.DataFrame (summary_data_dict)
 summary_frame = summary_frame.set_index('item')
 
@@ -419,7 +420,8 @@ print()
 print("*** ticket / snack information ***")
 print("note: for full details, please see the excel file called")
 print()
-print(movie_frame [['Ticket', 'Snacks', 'Sub Total', 'Surcharge', 'Total']])
+# print(movie_frame [['Ticket', 'Snacks', 'Sub Total', 'Surcharge', 'Total']])
+# print(movie_frame[['Ticket', 'Snacks']])
 
 print()
 
