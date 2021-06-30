@@ -256,6 +256,21 @@ price_dict = {
     'Orange Juice': 3.25
 }
 
+# ask user if they have used the program before & show instructions
+instructions (yes_no)
+
+# loop to get ticket details
+while name != "xxx" and ticket_count < MAX_TICKETS:
+
+    # check numbers of ticket limit has not been exceeded...
+
+    # **** GET DETAILS FOR EACH TICKET... ****
+
+    # get name (can't be blank)
+    name = not_blank("name:")
+
+    # end the loop if the exit code is entered
+
 # not sure we still need these variables because we are using a Panda
 profit = 0
 count = 0
